@@ -1,0 +1,3 @@
+[build]
+## set build target. So that we don't need to specify `--target xxxx` when we call `cargo build`
+target = "riscv64gc-unknown-none-elf"
