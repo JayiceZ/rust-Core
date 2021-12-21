@@ -25,6 +25,7 @@ SECTIONS
     sdata = .;
     .data : {
         *(.data .data.*)
+        *(.sdata .sdata.*)
     }
 
     . = ALIGN(4K);
@@ -33,6 +34,7 @@ SECTIONS
         *(.bss.stack)
         sbss = .;
         *(.bss .bss.*)
+        *(.sbss .sbss.*)
     }
 
     . = ALIGN(4K);
