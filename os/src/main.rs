@@ -8,10 +8,15 @@
 mod console;
 mod lang_items;
 mod sbi;
+mod syscall;
+mod trap;
+mod batch;
+mod sync;
 
 
 
 global_asm!(include_str!("entry.asm"));
+global_asm!(include_str!("link_app.S"));
 
 
 
@@ -30,7 +35,9 @@ fn clear_bss() {
 pub fn rust_main() -> ! {
     clear_bss();
     println!("hello world");
-    panic!("shut down");
+    trap::init();
+    batch::init();
+    batch::run_next_app();
 }
 
 
